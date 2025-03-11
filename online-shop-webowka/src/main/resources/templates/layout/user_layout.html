@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="/js/cookies.js"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+<header class="p-5 bg-slate-800 text-gray-200 flex justify-between">
+    <h1 class="text-2xl font-semibold">PWr <span class="text-green-500 font-extrabold">Shop</span>
+    </h1>
+
+    <nav class="flex items-center">
+        <ul class="flex justify-end items-end gap-5">
+            <li><a href="/shop/shop" th:href="@{/user/shop}">Shop</a></li>
+            <li><a href="/shop/cart" th:href="@{/user/cart}">Cart</a></li>
+            <li><a href="/logout" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="flex-grow p-5">
+    <div th:replace="~{${body}}"></div>
+</main>
+
+<footer
+        class="footer footer-center bg-slate-800 text-lg p-5 text-gray-200 font-lato"
+>
+    <div class="flex items-center justify-center space-x-1">
+        <p>&copy; 2024 Webowka 2024/25</p>
+        <a
+                href="https://lukasz.vercel.app"
+                target="_blank"
+                class="transition-all ease-in-out duration-200 hover:text-blue-500"
+        >
+            <p>Łukasz Fabia</p>
+        </a>
+
+        <p>&</p>
+
+        <a
+                href="https://github.com/pyRR4"
+                target="_blank"
+                class="transition-all ease-in-out duration-200 hover:text-blue-500"
+        >Igor Podgórniak</a
+        >
+    </div>
+</footer>
+</body>
+
+</html>

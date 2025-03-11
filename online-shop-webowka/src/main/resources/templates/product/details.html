@@ -1,0 +1,38 @@
+<body class="font-lato">
+    <main class="p-10 bg-gray-200 shadow-lg rounded-lg">
+        <div class="flex justify-center items-center">
+            <div class="card w-96 bg-base-100 shadow-xl p-6">
+                <div class="card-body">
+                    <h1 class="text-3xl font-extrabold text-center mb-4">Product <span
+                            class="text-green-500">Details</span></h1>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between">
+                            <span class="font-semibold">ID:</span>
+                            <span th:text="${productDTO.id}" class="text-gray-700"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Name:</span>
+                            <span th:text="${productDTO.name}" class="text-gray-700"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Category:</span>
+                            <span th:text="${productDTO.category.name}" class="text-gray-700"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Price:</span>
+                            <span th:text="${productDTO.price}" class="text-gray-700"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-semibold">Weight:</span>
+                            <span th:text="${productDTO.weight}" class="text-gray-700"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end items-end">
+            <a href="/admin/products" class="btn btn-primary btn-circle"><i class=" fa-solid fa-arrow-left"></i></a>
+        </div>
+    </main>
+</body>

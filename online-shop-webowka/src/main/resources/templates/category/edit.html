@@ -1,0 +1,49 @@
+<body class="font-lato">
+<main class="p-10 bg-gray-200">
+    <div class="flex justify-center items-center">
+        <div class="card w-96 bg-base-100 shadow-xl p-6">
+            <div class="card-body">
+                <h1 class="card-title text-center font-extrabold text-2xl">Edit <span
+                        class="text-green-500">Category</span>
+                </h1>
+                <form th:action="@{/admin/categories/edit/{id}(id=${categoryDTO.id})}" th:object="${categoryDTO}"
+                      method="post" class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+                        </label>
+                        <input th:field="*{name}" required type="text" class="input input-bordered w-full" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Category</span>
+                        </label>
+                        <input th:field="*{code}" required type="text" class="input input-bordered w-full" />
+                    </div>
+
+                    <div class="divider divider-horizontal"></div>
+
+                    <div class="flex justify-between items-center">
+                        <button type="reset" class="btn btn-secondary btn-circle">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+
+                        <div class="tooltip tooltip-right" data-tip="Send object to db">
+                            <button type="submit" class="btn btn-primary btn-circle">
+                                <i class="fas fa-save"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-end items-end mt-4">
+        <a href="/admin/products" class="btn btn-primary btn-circle">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+    </div>
+</main>
+</body>

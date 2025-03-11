@@ -1,0 +1,59 @@
+<body>
+<div class="bg-gray-100 p-10">
+    <section>
+        <h1 class="text-2xl font-semibold ">Create New <span class="text-green-500">Category</span></h1>
+        <p class="text-gray-400 py-4">Here you can add categories to shop.</p>
+        <form th:action="@{/admin/categories}" th:object="${categoryDTO}" method="post"
+              class="bg-gray-200 shadow-lg rounded-xl p-4 flex justify-between form">
+            <div class="flex items-start justify-start gap-y-3 gap-2">
+                <label class="input input-bordered flex items-center gap-2">
+                    Name
+                    <input th:field="*{name}" required type="text" class="grow" placeholder="Wagyu" />
+                </label>
+                <label class="input input-bordered flex items-center gap-2">
+                    Code
+                    <input th:field="*{code}" required type="text" class="grow" placeholder="K1" />
+                </label>
+            </div>
+            <div class="tooltip">
+                <button type="reset" class="btn btn-secondary btn-circle">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <button type="submit" class="btn btn-primary btn-circle">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </form>
+    </section>
+    <section>
+        <h1 class="text-2xl font-semibold pt-5">Category <span class="text-green-500">List</span></h1>
+        <p class="text-gray-400 py-4">There are your created categories.</p>
+        <div class="overflow-x-auto">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                </tr>
+                <tr th:if="${not #lists.isEmpty(categoriesDTO)}" th:each="category : ${categoriesDTO}" class="hover">
+                    <td th:text="${category.id}"></td>
+                    <td th:text="${category.name}"></td>
+                    <td th:text="${category.code}"></td>
+                    <td class="flex items-end justify-end">
+                        <a class="btn btn-circle btn-warning mx-1"
+                           th:href="@{/admin/categories/edit/{id}(id=${category.id})}"><i class="fa-solid fa-edit"></i></a>
+                        <a class="btn btn-circle btn-error mx-1"
+                           th:href="@{/admin/categories/delete/{id}(id=${category.id})}"><i
+                                class="fa-solid fa-xmark"></i></a>
+                    </td>
+                </tr>
+                <tr th:unless="${not #lists.isEmpty(categoriesDTO)}" class="text-center">
+                    <td colspan="6">
+                        <h1 class="text-3xl font-extrabold py-4">There are no items!</h1>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+</body>
